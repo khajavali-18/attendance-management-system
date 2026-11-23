@@ -1,0 +1,9 @@
+{% extends 'base.html' %}\n{% block title %}Login · AttendEase{% endblock %}
+{% block content %}
+<section class="login-wrap">
+  <div class="login-side"><div class="logo-large">A</div><h1>Attendance,<br>made simple.</h1><p>Keep your classroom organized. Record daily attendance and track student participation in one place.</p><div class="login-illustration">📋 <span>✓</span></div></div>
+  <div class="login-card"><div class="eyebrow">WELCOME BACK</div><h2>Sign in to your account</h2><p class="muted">Enter your details to continue.</p>
+    <form method="post"><label>Username</label><input name="username" placeholder="Enter username" required autocomplete="username"><label>Password</label><input name="password" type="password" placeholder="Enter password" required autocomplete="current-password"><button class="primary full" type="submit">Sign in <span>→</span></button></form>
+  </div>
+</section>
+{% endblock %}

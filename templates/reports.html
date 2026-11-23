@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Reports · AttendEase{% endblock %}
+{% block content %}
+<div class="heading-row"><div><div class="eyebrow">ANALYTICS</div><h1>Attendance Reports</h1><p class="muted">Attendance summary across recorded sessions.</p></div><button class="secondary" onclick="window.print()">Print report</button></div>
+<section class="panel report-panel"><div class="panel-head"><div><h2>Student attendance percentage</h2><p class="muted">Percentage based on recorded attendance dates.</p></div></div><div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>USN</th><th>ATTENDED</th><th>CLASSES</th><th>ATTENDANCE</th></tr></thead><tbody>
+{% for r in rows %}<tr><td><div class="student-cell"><span class="avatar">{{ r.name[:1]|upper }}</span><div><strong>{{ r.name }}</strong><small>{{ r.department }} · Sem {{ r.semester }}</small></div></div></td><td class="usn">{{ r.usn }}</td><td>{{ r.attended }}</td><td>{{ r.total }}</td><td><div class="percent-cell"><div class="percent-bar"><span style="width:{{ r.percent }}%"></span></div><strong class="{% if r.total and r.percent < 75 %}low{% else %}good{% endif %}">{{ r.percent }}%</strong></div></td></tr>
+{% else %}<tr><td colspan="5" class="empty">No students yet. Add students on the Dashboard.</td></tr>{% endfor %}
+</tbody></table></div><div class="report-note">Attendance below <strong>75%</strong> is marked in red for easy identification.</div></section>
+{% endblock %}
